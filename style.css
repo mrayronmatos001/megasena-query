@@ -35,6 +35,11 @@ form {
     row-gap: .4rem;
 }
 
+.form-group.btn {
+    flex-direction: row;
+    column-gap: 1rem;
+}
+
 input {
     height: 2rem;
     text-align: center;

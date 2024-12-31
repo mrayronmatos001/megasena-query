@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const result = document.querySelector(".result");
+const showAll = document.querySelector("button[type='button']");
 
 Nums = [
     [1, 8, 18, 41, 42, 53, 59, 60],
@@ -107,9 +108,8 @@ Nums = [
     [1, 7, 14, 21, 28, 29]
 ]
 
-form.onsubmit = e => {
-    e.preventDefault();
-    const inputNumStr = input.value.split(" ");
+const displayNums = (arr) => {
+    const inputNumStr = arr;
     const prizeNums = inputNumStr.map(num => Number(num));
     let nearbyNums = [];
     let maxLength = 0;
@@ -139,4 +139,14 @@ form.onsubmit = e => {
         })
         result.append(p);
     });
+}
+
+form.onsubmit = e => {
+    e.preventDefault();
+    displayNums(input.value.split(" "))
+}
+
+showAll.onclick = () => {
+    console.log("cliquei no botão");
+    displayNums([]);
 }
